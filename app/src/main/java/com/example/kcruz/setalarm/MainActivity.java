@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TimePicker time = findViewById(R.id.tp_time);
-        final EditText alarmName= findViewById((R.id.etxt_alarm_name));
+        final EditText alarmName= findViewById(R.id.etxt_alarm_name);
         Button btnSet = findViewById(R.id.btn_set);
 
         btnSet.setOnClickListener(new View.OnClickListener() {
