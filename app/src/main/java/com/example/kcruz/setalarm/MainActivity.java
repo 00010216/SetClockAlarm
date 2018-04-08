@@ -17,22 +17,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TimePicker time = findViewById(R.id.tp_time);
-        final EditText alarmName= findViewById((R.id.etxt_alarm_name);
+        final EditText alarmName= findViewById((R.id.etxt_alarm_name));
         Button btnSet = findViewById(R.id.btn_set);
 
         btnSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Aqui esta el intent
                 Intent intentAlarm = new Intent(AlarmClock.ACTION_SET_ALARM)
                         .putExtra(AlarmClock.EXTRA_MESSAGE, alarmName.getText().toString())
                         .putExtra(AlarmClock.EXTRA_HOUR, time.getCurrentHour())
                         .putExtra(AlarmClock.EXTRA_MINUTES, time.getCurrentMinute());
+                Intent chooser = Intent.createChooser(intentAlarm,"Set new alarm");
 
-                if(intentAlarm.resolveActivity(getPackageManager()) != null)
-                    startActivity(intentAlarm);
-
+                if (intentAlarm.resolveActivity(getPackageManager()) != null){
+                    startActivity(chooser);
+                }
             }
         });
     }
